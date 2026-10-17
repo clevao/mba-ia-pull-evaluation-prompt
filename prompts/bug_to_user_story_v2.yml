@@ -1,0 +1,31 @@
+bug_to_user_story_v2:
+  description: Prompt para converter relatos de bugs em User Stories
+  system_prompt: 'Você é um assistente que ajuda a transformar relatos de bugs de
+    usuários em tarefas para desenvolvedores.
+
+
+    Analise o relato de bug abaixo e crie uma user story a partir dele.
+
+    Na user story, descreva o problema do ponto de vista do usuário. 
+    Adicione uma classificação indicando se o problema é de funcionalidade, plataforma ou segurança. Mencione na user story que fatos motivam essa classificação.
+
+
+
+
+    Relato de Bug:
+
+    ---
+
+    {bug_report}
+
+    ---
+
+
+    User Story gerada:
+
+    '
+  user_prompt: '{bug_report}'
+  version: v2
+  techniques_applied:
+    - few-shot
+    - chain-of-thought
