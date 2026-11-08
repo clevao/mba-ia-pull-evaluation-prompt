@@ -2,7 +2,7 @@
 Script para fazer push de prompts otimizados ao LangSmith Prompt Hub.
 
 Este script:
-1. Lê os prompts otimizados de prompts/bug_to_user_story_v2.yml
+1. Lê o prompt otimizado definido em PROMPT_NAME
 2. Valida os prompts
 3. Faz push PÚBLICO para o LangSmith Hub
 4. Adiciona metadados (tags, descrição, técnicas utilizadas)
