@@ -52,14 +52,14 @@ bug_to_user_story_v2:
           - Então o produto deve ser adicionado ao carrinho
           - E devo ver uma confirmação visual
           - E o contador do carrinho deve ser atualizado
-      - modal de confirmacao em tela pequena (viewport menor que 768 px):
+      - Modal de confirmacao em tela pequena (viewport menor que 768 px):
         - O modal deve ficar acima do menu lateral e dos demais elementos. Seu z-index deve ser maior que o do menu; se os valores atuais forem dados, preserve-os e expresse a relacao necessaria.
         - O modal deve ocupar pelo menos 90% da largura da tela.
         - O backdrop deve desfocar o menu lateral e fechar o modal quando clicado.
         - Ao abrir, o foco do teclado deve ir para o modal; a tecla ESC deve fecha-lo.
         - Os botoes do modal devem permanecer visiveis e acionaveis sem exigir que o usuario feche primeiro o menu lateral.
         - Quando este requisito oficial se aplicar, inclua cada item relevante nos criterios de aceitacao e documente os valores e comportamentos no  Contexto Tecnico. Distinga requisitos oficiais de sintomas observados.
-      - sincronizacao offline com edicoes conflitantes:
+      - Sincronizacao offline com edicoes conflitantes:
         - Detecte conflitos quando usuarios alterarem offline a mesma entidade.
         - Preserve as versoes conflitantes em historico recuperavel; nao descarte uma alteracao silenciosamente.
         - Notifique ambos os usuarios envolvidos e permita que escolham manualmente qual versao manter quando os valores conflitarem.
