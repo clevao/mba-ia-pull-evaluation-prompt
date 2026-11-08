@@ -1,5 +1,83 @@
 # Pull, Otimização e Avaliação de Prompts com LangChain e LangSmith
 
+## Entregável
+
+### Técnicas Aplicadas
+
+#### few-shot
+Com base nos cases dos dataset, montei alguns exemplos do output esperado para alguns casos. Nos exemplos aproveitei também para reforçar o modelo do output esperado, conforme as instruções incluídas no prompt.
+#### role-prompting
+Instrui o modelo para assumir o papel de Product Manager, visando que o modelo tenha uma visão/análise mais próxima de um PO/PM, que geralmente possui um conhecimento mais detalhado do produto. No v1, a instrução era para assumir o papel de uma assistente, acredito que isso contribuia para uma performance mais baixa do prompt.
+#### structured-output
+Usei essa técnica para definir qual a estrutura da user story criada, para pode monder um padrão em todas as respostas. Normalmente as user story tem um template padrão para seguir, facilitando assim a leitura de quem está tratando o assunto, então com o structured-output, foi possível manter esse coportamento.
+
+### Resultados finais
+
+#### Resultado das avaliações
+- **Resultado por case**
+![Resultado por case](/docs/v2-results-per-case.png)
+- **Resultado final**
+![Resultado final](/docs/v2-summary.png)
+
+#### Evidências do LangSmith
+
+Link public do LangSmith: https://smith.langchain.com/public/ea828e56-fe97-4c14-a5a4-017dfa57aca9/d
+
+##### Dataset
+
+![Dataset do projeto](/docs/dataset.png)
+
+##### Tracing Completo
+
+###### Case: `Botão de adicionar ao carrinho não funciona no produto ID 1234.`
+![Input](/docs/trace-1-input.png)
+![Output](/docs/trace-1-output.png)
+
+###### Case: `Campo de email aceita texto sem @, permitindo cadastros inválidos.`
+![Input](/docs/trace-2-input.png)
+![Output](/docs/trace-2-output.png)
+
+###### Case: `Imagens de produtos não aparecem no Safari. No Chrome funciona normal.`
+![Input](/docs/trace-3-input-1.png)
+![Input](/docs/trace-3-input-2.png)
+![Output](/docs/trace-3-output.png)
+
+
+### Como executar
+
+#### Configurar o ambiente
+1. Configurar o VirtualEnv e instalar as dependências
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # No Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+2. Clonar o arquivo `.env.example` com o nome `.env` e 
+- configurar os parâmetros do **LANGSMITH** 
+- setar o `LLM_PROVIDER` com `openai` ou `google`
+  - Se for `openai`, informar no `OPENAI_API_KEY` a respectiva **API KEY**
+  - Se for `google`, informar no `GOOGLE_API_KEY` a respectiva **API KEY**
+- setar o parâmetros de modelo: `LLM_MODEL` e `EVAL_MODEL`
+  - No arquivo `.env.example` tem os modelos recomendados para cada provider. Só precisa descomentar a respectivação opção.
+
+#### Executar o código
+Fazer o push do prompt v2:
+```bash
+.venv/bin/python src/push_prompts.py
+```
+
+Executar a avaliação
+```bash
+.venv/bin/python src/evaluate.py
+```
+
+Executar os testes:
+```bash
+.venv/bin/python tests/test_prompts.py 
+```
+
 ## Objetivo
 
 Você deve entregar um software capaz de:
